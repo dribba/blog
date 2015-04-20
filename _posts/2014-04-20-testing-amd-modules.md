@@ -11,12 +11,14 @@ One of the biggest challenges is to deal with AMD modules, and sometimes is even
 I assume that you know what Unit Testing is and how to setup Karma+Jasmine, if not there's a lot of blog posts about it or even a [very short course](https://www.udacity.com/course/ud549 "Udacity - JavaScript Testing").
 
 
-===What do you get for free===
+=== What do you get for free ===
 
 The default settings that Karma generates for a Jasmine+RequireJS test suit will be, first of all the configuration for Karma itself, from where the most important piece we can take is:
 
-`files: [
+```js
+files: [
 	'test-main.js',
 	{pattern: 'js/**/*.js', included: false},
 	{pattern: 'test/**/*Spec.js', included: false}
-],`
+],
+```
