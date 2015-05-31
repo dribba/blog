@@ -3,21 +3,21 @@
 title: MVC a deeper look
 
 # Any tags for the post. Space separated.  Multi word tags can have their spaces escaped with +
-tags: MVC web development pattern understanding
+tags: MVC web development pattern deeper
 ---
 
 As a self-thought developer I had to, plenty of times, spend hours and hours reading about certain subject until I got that "Wow!" moment. When I first started doing web development the main pattern I kept coming across was MVC. 
 We have all read about it, and understand the main idea of the pattern which is to separate the presentation layer from the business logic using controllers to mediate between them.
 
-### Understanding the limits
+#### Understanding the limits
 One of the problems I came across lots, while either implementing or maintaining projects that used MVC, was to understand where the limits were, when code belongs to each of the layers, and one of the factor that made it difficult was that applications were too big to split into just three layers.
 
-#### Classic MVC splitting
+### Classic MVC splitting
 Most people will recommend to have most of your code on the model layer, this could be a great way to start but, problem is, that most examples about models show an object that is very close to a representation of a database row, this greatly confuses most developers thinking that the model layer should be "close to the database". This is probably the first place where things start going wrong, first of all, not all applications have or need a database, or if you put most of it in that single layer so "close to the database" you will find yourself with a 2000 lines of code file that's a maintenance nightmare, and to make it worse this is supposed to be the foundation of your application, a small mistake will cost a lot more than in any other area of the application.
 The view layer is normally recommended to be as lean as possible, which could've made a lot of sense 10 years ago, but now, mostly in new web applications, we have many interactions with users just from the client itself, which obviously doesn't translate to presentation less code.
 The standard for controllers is to do the rest, just tie the other two layers together, that normally doesn't result in maintainable code, even less when examples suggest to make web service calls from controllers(just because they're not database code or part of the view doesn't mean is a good place for them).
 
-### Introducing Model-View-Controller-Component-Service-Repository
+#### Introducing Model-View-Controller-Component-Service-Repository
 The name doesn't really matter, just think of the layers as:
 
 * Model: All your application specific types/classes, like "Invoice", "Client", "ProductInformation". It doesn't matter if maps a database row as long as it has no database logic in it. Models shouldn't have a "save" method that you call to persist it to the database or anything alike. In JavaScript this would be a good place to put prototypes.
